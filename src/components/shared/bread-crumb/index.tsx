@@ -1,20 +1,21 @@
-import { Breadcrumbs, Link, Typography } from "@mui/material";
-import { theme } from "../../../theme";
+import {
+  StyledActiveBreadCrumbLink,
+  StyledBreadCrumbContainer,
+  StyledBreadCrumbLink,
+} from "./styles";
 
 export const BreadCrumb = () => {
   return (
-    <Breadcrumbs
-      style={{ marginTop: "50px", marginBottom: "18px", paddingLeft: "70px" }}>
-      <Link underline='hover' fontSize={14} color='inherit' href='/'>
+    <StyledBreadCrumbContainer>
+      <StyledBreadCrumbLink underline='hover' href='/'>
         Home
-      </Link>
-      <Link underline='hover' fontSize={14} color='inherit' href='/'>
+      </StyledBreadCrumbLink>
+      <StyledBreadCrumbLink underline='hover' href='/'>
         Won Auctions
-      </Link>
-      <Typography fontSize={14} color={theme.palette.grey[400]}>
-        {" "}
+      </StyledBreadCrumbLink>
+      <StyledActiveBreadCrumbLink underline='hover'>
         Auction Calender
-      </Typography>
-    </Breadcrumbs>
+      </StyledActiveBreadCrumbLink>
+    </StyledBreadCrumbContainer>
   );
 };
