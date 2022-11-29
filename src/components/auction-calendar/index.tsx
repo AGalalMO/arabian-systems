@@ -2,12 +2,39 @@ import { Box, Stack, Typography } from "@mui/material";
 import { theme } from "../../theme";
 import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
-import { useActionCalender } from "./useActionCalender";
+import { useAuctionCalender } from "./useAuctionCalender";
 import { DayHeader } from "./calneder/DayHeader";
+import { AuctionEvent } from "./calneder/AuctionEvent";
+import { Event } from "../../@types/Auction";
 export const AuctionCalender = () => {
+  const { calenderData, maxEvents, onNextClick,startDay,endDay } = useAuctionCalender();
+  console.log("maxEvents", maxEvents);
 
-    const { calenderData } = useActionCalender()
-    console.log("calenderDAta", calenderData);
+  const getEventsContent = (events: Event[]) => {
+    let content: JSX.Element[] = [];
+    for (let event of events) {
+      content.push(
+        <AuctionEvent
+          key={event.NumberOfItems}
+          backColor={'white'}
+          event={event}
+        />
+      );
+    }
+    if (content.length < maxEvents) {
+      for (let i = content.length; i < maxEvents; i++) {
+        content.push(
+          <AuctionEvent
+            key={`empty${i}`}
+            backColor={events.length == 0 ? theme.palette.grey[700] : "white"}
+          />
+        );
+      }
+    }
+
+    return content;
+  };
+
   return (
     <Stack>
       <Stack
@@ -35,7 +62,7 @@ export const AuctionCalender = () => {
             }}>
             <span>Today</span>
           </Typography>
-          <ChevronRightOutlinedIcon />
+          <ChevronRightOutlinedIcon onClick={() => onNextClick()} />
         </Stack>
         <Box flex={1}></Box>
       </Stack>
@@ -43,13 +70,17 @@ export const AuctionCalender = () => {
         style={{
           borderRadius: 6,
           background: theme.palette.grey["700"],
-          justifyContent: "center",
-                  boxShadow: `0px 3px 6px #4E4E4E29`,
-          flexDirection:'row'
+          boxShadow: `0px 3px 6px #4E4E4E29`,
+          flexDirection: "row",
         }}>
-              {calenderData.slice(0, 7).map((item) => {
-           return <DayHeader key={item.Date} date={item.Date} />;
-       })}
+        {calenderData.slice(startDay, endDay).map((item) => {
+          return (
+            <Stack key={item.Date}>
+              <DayHeader auction={item} />
+              {getEventsContent(item.Events)}
+            </Stack>
+          );
+        })}
       </Stack>
     </Stack>
   );

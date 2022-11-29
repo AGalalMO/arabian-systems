@@ -1,33 +1,36 @@
 import { Box, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
+import { Auction } from "../../../@types/Auction";
 import { theme } from "../../../theme";
 
-export const DayHeader = ({ date }: { date: string }) => {
-  const CurrentDate = new Date(date);
-  const weekday = CurrentDate.toLocaleString("en", {
-    weekday: "short",
-  });
+export const DayHeader = ({ auction }: { auction: Auction }) =>
+{
+  const auctionDate = new Date(auction.Date);
   const today = new Date();
   return (
     <Stack
-      style={{ padding: "24px 53px" }}
+      style={{
+        width: "177px",
+        height: "155px",
+        borderRight: `1px solid ${theme.palette.grey[600]}`,
+      }}
       alignItems={"center"}
       justifyContent={"center"}>
       <Typography
         fontWeight={"bold"}
         fontSize={18}
         color={theme.palette.grey[400]}>
-        {weekday}
+        {auction.DayName.slice(0,3)}
       </Typography>
       <Typography
         fontWeight={"bold"}
         fontSize={62}
         color={
-          today.toDateString() == CurrentDate.toDateString()
+          today.toDateString() == auctionDate.toDateString()
             ? theme.palette.primary.main
             : theme.palette.grey[400]
         }>
-        {CurrentDate.getDate()}
+        {auction.DayNumber}
       </Typography>
     </Stack>
   );
