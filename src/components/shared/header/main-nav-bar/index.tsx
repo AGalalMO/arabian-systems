@@ -1,4 +1,4 @@
-import { Badge, Stack, useTheme } from "@mui/material";
+import { Badge, Stack } from "@mui/material";
 import {
   StyledBarContainer,
   StyledCountSpan,

@@ -14,8 +14,16 @@ import {
   StyledHeaderTypography,
 } from "./styles";
 export const AuctionCalender = () => {
-  const { calenderData, maxEvents, onNextClick, startDay, endDay } =
-    useAuctionCalender();
+  const {
+    calenderData,
+    maxEvents,
+    onNextClick,
+    startDay,
+    endDay,
+    currentDay,
+    onBackClick,
+    DateHeadText,
+  } = useAuctionCalender();
 
   const getEventsContent = (events: Event[]) => {
     let content: JSX.Element[] = [];
@@ -45,9 +53,9 @@ export const AuctionCalender = () => {
           <StyledHeaderTypography>Auction Calender</StyledHeaderTypography>
         </Box>
         <StyledControlsStack flex={4}>
-          <ChevronLeftOutlinedIcon />
+          <ChevronLeftOutlinedIcon onClick={() => onBackClick()} />
           <StyledControlsTypography>
-            <span>Today</span>
+            <span>{DateHeadText}</span>
           </StyledControlsTypography>
           <ChevronRightOutlinedIcon onClick={() => onNextClick()} />
         </StyledControlsStack>
@@ -56,8 +64,8 @@ export const AuctionCalender = () => {
       <StyledCalenderContainerStack>
         {calenderData.slice(startDay, endDay).map((item) => {
           return (
-            <Stack key={item.Date}>
-              <DayHeader auction={item} />
+            <Stack key={item.Date} flex={1}>
+              <DayHeader currentDay={currentDay} auction={item} />
               {getEventsContent(item.Events)}
             </Stack>
           );

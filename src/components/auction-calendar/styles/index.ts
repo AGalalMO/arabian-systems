@@ -6,6 +6,9 @@ export const StyledHeaderStack = styled(Stack)(({ theme }) => ({
   justifyContent: "space-between",
   marginBottom: "36px",
   alignItems: "center",
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+  },
 }));
 export const StyledHeaderTypography = styled(Typography)(({ theme }) => ({
   fontSize: "24px",
@@ -28,4 +31,8 @@ export const StyledCalenderContainerStack = styled(Stack)(({ theme }) => ({
   background: theme.palette.grey["700"],
   boxShadow: `0px 3px 6px #4E4E4E29`,
   flexDirection: "row",
+  
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+  },
 }));
