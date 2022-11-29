@@ -1,5 +1,5 @@
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
-import { Stack, Typography } from "@mui/material";
+import { AppBar, Box, Container, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const StyledBarContainer = styled(Stack)(({ theme }) => ({
@@ -39,11 +39,33 @@ export const NavigationElementStack = styled(Stack)(({ theme }) => ({
 export const StyledNavigationStack = styled(NavigationElementStack)<{
   withBorder?: boolean;
 }>`
-  border-right: ${(props) =>
-    props.withBorder == false ? "0px" : "1px solid"};
+  border-right: ${(props) => (props.withBorder == false ? "0px" : "1px solid")};
 `;
 export const StyledExpandIcon = styled(KeyboardArrowDownOutlinedIcon)(
   ({ theme }) => ({
     color: theme.palette.grey[400],
   })
 );
+
+export const StyledAppBar = styled(AppBar)({
+  background: "white",
+  boxShadow: "none",
+  position: "relative",
+});
+export const StyledWebStack = styled(Stack)(({ theme }) => ({
+  width: "100%",
+  display: "flex",
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
+}));
+export const StyledNavContainer = styled(Container)({
+  padding: "0px !important",
+});
+export const StyledMobileBox = styled(Box)(({ theme }) => ({
+  flexGrow: 1,
+  display: "none",
+  [theme.breakpoints.down("md")]: {
+    display: "flex",
+  },
+}));

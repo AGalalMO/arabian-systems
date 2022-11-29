@@ -90,6 +90,15 @@ export const StyledResponsiveStack = styled(Stack)(({ theme }) => ({
     paddingBottom: "8px",
   },
 }));
+export const StyledIconsStack = styled(Stack)(({ theme }) => ({
+  flexDirection: 'row',
+  [theme.breakpoints.down('md')]: {
+    paddingBottom: '8px',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+}))
 export const StyledCopyRightStack = styled(Stack)(({ theme }) => ({
   flexDirection: "row",
   justifyContent: "space-between",

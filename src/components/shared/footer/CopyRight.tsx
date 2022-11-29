@@ -1,14 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { Divider, Stack } from "@mui/material";
+import { Divider } from "@mui/material";
 import {
   StyledCopyRightStack,
-  StyledInfoIcon,
-  StyledLightTypography,
-  StyledMailIcon,
-  StyledMainFooterHeadTypography,
-  StyledMainFooterStack,
+  StyledIconsStack,
   StyledPreFooterImage,
-  StyledResponsiveStack,
   StyledTypography,
 } from "./styles";
 export const CopyRight = () => {
@@ -16,7 +11,7 @@ export const CopyRight = () => {
     <>
       <Divider />
       <StyledCopyRightStack>
-        <StyledResponsiveStack>
+        <StyledIconsStack>
           <StyledPreFooterImage
             width={64}
             height={24}
@@ -59,7 +54,7 @@ export const CopyRight = () => {
             alt='verifiedBy'
             src={"assets/McAfee.png"}
           />
-        </StyledResponsiveStack>
+        </StyledIconsStack>
         <StyledTypography size={12}>
           2022 © Emirates Auction LLC
         </StyledTypography>

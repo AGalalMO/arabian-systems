@@ -1,5 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
-import { theme } from "../../theme";
+import { Box, Stack } from "@mui/material";
 import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import { useAuctionCalender } from "./useAuctionCalender";
