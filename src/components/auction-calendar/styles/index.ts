@@ -1,6 +1,7 @@
 import { Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-
+import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
+import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 export const StyledHeaderStack = styled(Stack)(({ theme }) => ({
   flexDirection: "row",
   justifyContent: "space-between",
@@ -31,8 +32,14 @@ export const StyledCalenderContainerStack = styled(Stack)(({ theme }) => ({
   background: theme.palette.grey["700"],
   boxShadow: `0px 3px 6px #4E4E4E29`,
   flexDirection: "row",
-  
+
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
   },
 }));
+export const StyledChevronLeftOutlinedIcon = styled(ChevronLeftOutlinedIcon)({
+  cursor: "pointer",
+});
+export const StyledChevronRightOutlinedIcon = styled(ChevronRightOutlinedIcon)({
+  cursor: "pointer",
+});

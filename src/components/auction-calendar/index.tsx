@@ -1,12 +1,12 @@
 import { Box, Stack } from "@mui/material";
-import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
-import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import { useAuctionCalender } from "./useAuctionCalender";
 import { DayHeader } from "./calender/DayHeader";
 import { AuctionEvent } from "./calender/AuctionEvent";
 import { Event } from "../../@types/Auction";
 import {
   StyledCalenderContainerStack,
+  StyledChevronLeftOutlinedIcon,
+  StyledChevronRightOutlinedIcon,
   StyledControlsStack,
   StyledControlsTypography,
   StyledHeaderStack,
@@ -52,11 +52,11 @@ export const AuctionCalender = () => {
           <StyledHeaderTypography>Auction Calender</StyledHeaderTypography>
         </Box>
         <StyledControlsStack flex={4}>
-          <ChevronLeftOutlinedIcon onClick={() => onBackClick()} />
+          <StyledChevronLeftOutlinedIcon onClick={() => onBackClick()} />
           <StyledControlsTypography>
             <span>{DateHeadText}</span>
           </StyledControlsTypography>
-          <ChevronRightOutlinedIcon onClick={() => onNextClick()} />
+          <StyledChevronRightOutlinedIcon onClick={() => onNextClick()} />
         </StyledControlsStack>
         <Box flex={1}></Box>
       </StyledHeaderStack>
